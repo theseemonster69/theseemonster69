@@ -1,0 +1,118 @@
+<div style="display:none;">
+     <link rel="stylesheet" type="text/css" href="style.css">
+<select id="master-dropdown-list">
+<option value=""></option>
+<option value="+00:00">(UTC) London, Casablanca, Dublin, Edinburgh, Lisbon, Iceland, Monrovia</option>
+<option value="+01:00">(UTC+01:00) Amsterdam, Berlin, Belgrade, Bratislava, Budapest, Rome, Stockholm, Vienna</option>
+<option value="+01:00">(UTC+01:00) Prague, Brussels, Bern, Copenhagen, Madrid, Paris, Sarajevo, Warsaw, Zagreb</option>
+<option value="+01:00">(UTC+01:00) West Central Africa</option>
+<option value="+02:00">(UTC+02:00) Cairo, Pretoria, Athens, Istanbul, Minsk, Bucharest</option>
+<option value="+02:00">(UTC+02:00) Jerusalem, Harare, Helsinki, Riga, Sofia, Tallinn, Vilnius</option>
+<option value="+03:00">(UTC+03:00) Nairobi, Baghdad, Kuwait, Riyadh</option>
+<option value="+03:30">(UTC+03:30) Tehran</option>
+<option value="+04:00">(UTC+04:00) Moscow, St. Petersburg, Volgograd, Abu Dhabi, Muscat, Baku, Tbilisi, Yerevan</option>
+<option value="+04:30">(UTC+04:30) Kabul</option>
+<option value="+05:00">(UTC+05:00) Islamabad, Karachi, Tashkent, Ekaterinburg</option>
+<option value="+05:30">(UTC+05:30) Calcutta, Chennai, Mumbai, New Delhi</option>
+<option value="+05:45">(UTC+05:45) Kathmandu</option>
+<option value="+06:00">(UTC+06:00) Almaty, Novosibirsk, Astana, Dhaka, Sri Lanka</option>
+<option value="+06:30">(UTC+06:30) Rangoon</option>
+<option value="+07:00">(UTC+07:00) Hanoi, Jakarta, Bangkok, Novosibirsk</option>
+<option value="+08:00">(UTC+08:00) Beijing, Singapore, Hong Kong, Taipei, Irkutsk, Ulaanbaatar, Perth</option>
+<option value="+09:00">(UTC+09:00) Adelaide, Seoul, Osaka, Sapporo, Tokyo</option>
+<option value="+09:30">(UTC+09:30) Adelaide, Darwin</option>
+<option value="+10:00">(UTC+10:00) Brisbane</option>
+<option value="+10:00">(UTC+10:00) Melbourne, Sydney, Guam, Tasmania, Vladivostok</option>
+<option value="+11:00">(UTC+11:00) Magadan, Solomon Islands, New Caledonia</option>
+<option value="+12:00">(UTC+12:00) Fiji, Kamchatka, Auckland, Wellington</option>
+<option value="+13:00">(UTC+13:00) Nukualofa</option>
+<option value="-01:00">(UTC-01:00) Azores, Cape Verde</option>
+<option value="-03:00">(UTC-03:00) Greenland, Brasilia, Buenos Aires, Newfoundland</option>
+<option value="-04:00">(UTC-04:00) Atlantic Time (Canada)</option>
+<option value="-04:00">(UTC-04:00) Santiago, Bolivia</option>
+<option value="-04:30">(UTC-04:30) Caracas</option>
+<option value="-05:00">(UTC-05:00) Haiti, Bogota, Lima, Quito</option>
+<option value="-05:00">(UTC-05:00) Eastern Time (US and Canada)</option>
+<option value="-06:00">(UTC-06:00) Central Time (US and Canada)</option>
+<option value="-06:00">(UTC-06:00) Mexico City</option>
+<option value="-07:00">(UTC-07:00) Mountain Time (US and Canada)</option>
+<option value="-08:00">(UTC-08:00) Pacific Time (US and Canada), Tijuana</option>
+<option value="-09:00">(UTC-09:00) Alaska</option>
+<option value="-10:00">(UTC-10:00) Hawaii, Aleutian Islands</option>
+<option value="-11:00">(UTC-11:00) Midway Island, American Samoa</option>
+</select>
+</div>
+
+<div style="border:1px solid black; padding:30px; width:335px; ">
+<form style="margin:0px;" onsubmit="return false;">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="3">
+<div style="width:328px;">
+<h1><center>Timezone Converter</center></h1>
+<p style="margin:0px 0px 6px 1em; text-indent:-1em;">
+Type in time as hour:minute <span style="white-space:nowrap;">(e.g. 3:48)</span>
+</p>
+<p style="margin:0px 0px 6px 1em; text-indent:-1em;">
+For 12-hour clocks, add AM or PM <span style="white-space:nowrap;">(e.g. 3:48 PM)</span>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<input id="tzinput-left" style="width:150px;" value="Type time here" onclick="if(this.value=='Type time here'){this.value='';}">
+</td>
+<td rowspan="3" style="padding-left:7px; padding-right:7px;">
+<span onclick="UpdateTimezoneFields()" style="cursor:pointer;">
+<img src="rarrow.jpg" style="height:40px; width:25px;" alt="right arrow for calculating results">
+</span>
+</td>
+<td colspan="2" align="right">
+<div id="tzinput-right" style="width:148px; height:15px; border:1px solid black; padding:3px 0px 7px 0px; font-size:larger; text-align:center;">
+<div style="font-size:13px; white-space:nowrap;">Click arrow to convert.</div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="center">
+<input type="checkbox" id="tzdst-left">DST
+</td>
+<td align="center">
+<input type="checkbox" id="tzdst-right">DST
+</td>
+</tr>
+<tr>
+<td>
+<select id="tzlist-left" style="width:155px;"></select>
+</td>
+<td>
+<select id="tzlist-right" style="width:150px;"></select>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div style="width:328px;">
+<p style="margin:6px 0px 0px 1em; text-indent:-1em;">
+UTC = Coordinated Universal Time<br>
+To find the UTC of areas not in the dropdown, check this link: <a target="_blank" href="http://wikipedia.org/wiki/Time_zones_by_country">List of time zones by country</a>.
+</p>
+<p style="margin:6px 0px 0px 1em; text-indent:-1em;">
+DST = Daylight Saving Time<br>
+To determine if a certain area is on DST, check this link:
+
+<a target="_blank" href="http://www.worldtimezone.com/daylight.html">Countries operating Daylight Saving Time</a>
+</p>
+
+</ul>
+<p style="margin:6px 0px 0px 1em; text-indent:-1em;">
+<center>&copy; Bumpy 2020</acenter>
+</p>
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="script.js"></script>
+
